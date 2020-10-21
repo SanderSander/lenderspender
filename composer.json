@@ -1,6 +1,8 @@
 {
     "name": "sander/lenderspender",
     "type": "project",
+    "description": "Simulation of a simplified heartbreak card game with four players.",
+    "license": "proprietary",
     "autoload": {
         "psr-4": {
             "Acme\\": "src/"
