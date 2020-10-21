@@ -20,6 +20,7 @@
         "phpunit/phpunit": "^9"
     },
     "scripts": {
-        "simulation": "php ./bin/index.php simulate"
+        "simulation": "php ./bin/index.php simulate",
+        "test": "vendor/bin/phpunit"
     }
 }
