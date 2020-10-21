@@ -90,11 +90,11 @@ final class GameTest extends TestCase
         $deckFactory = $this->createMock(DeckFactoryInterface::class);
         $randomGenerator = $this->createMock(RandomGeneratorInterface::class);
 
-        $player1 = new Player('Foo');
+        $player1 = new Player('Player1');
         $player1->setCards([new Card(CardType::HEARTS(), CardValue::KING())]);
-        $player2 = new Player('Foo');
+        $player2 = new Player('Player2');
         $player2->setCards([new Card(CardType::HEARTS(), CardValue::QUEEN())]);
-        $player3 = new Player('Foo');
+        $player3 = new Player('Player3');
         $player3->setCards([new Card(CardType::HEARTS(), CardValue::JACK())]);
 
         // We need a random starting player
@@ -103,8 +103,8 @@ final class GameTest extends TestCase
         $game = new Game([$player1, $player2, $player3], $deckFactory, $randomGenerator);
         $table = $game->play();
 
-        $this->assertEquals($table->getLosingPlayer(), $player1, 'We expect player 1 to lose');
+        $this->assertEquals($player1, $table->getLosingPlayer(), 'We expect player 1 to lose');
         $this->assertEquals(3, $table->getPoints(), 'We expect 3 points on the table');
-        $this->assertEquals($table->getCards()[0][0], $player2, 'We expect player2 to begin');
+        $this->assertEquals($player2, $table->getCards()[0][0], 'We expect player2 to begin');
     }
 }
