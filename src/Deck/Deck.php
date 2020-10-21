@@ -25,7 +25,7 @@ class Deck
     /**
      * Shuffle the deck
      */
-    public function shuffle():void
+    public function shuffle(): void
     {
         shuffle($this->cards);
     }
@@ -33,7 +33,7 @@ class Deck
     /**
      * @return int
      */
-    public function count():int
+    public function count(): int
     {
         return count($this->cards);
     }
@@ -45,7 +45,7 @@ class Deck
      *
      * @return Card[]
      */
-    public function take(int $count):array
+    public function take(int $count): array
     {
         // TODO throw exception if the deck doesn't contain enough cards
 

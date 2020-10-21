@@ -9,7 +9,7 @@ use Symfony\Component\Console\Application;
 
 class Kernel
 {
-    public function run():void
+    public function run(): void
     {
         $application = new Application("Heartbreak simulation");
         $application->add(new SimulateCommand());

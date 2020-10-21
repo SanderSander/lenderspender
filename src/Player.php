@@ -17,7 +17,7 @@ class Player
         $this->name = $name;
     }
 
-    public function __toString():string
+    public function __toString(): string
     {
         return $this->name;
     }
@@ -27,7 +27,7 @@ class Player
      *
      * @param array $cards
      */
-    public function setCards(array $cards):void
+    public function setCards(array $cards): void
     {
         $this->cards = $cards;
     }
@@ -38,7 +38,7 @@ class Player
      * @param int $index
      * @return Card
      */
-    public function getCard(int $index):Card
+    public function getCard(int $index): Card
     {
         return $this->cards[$index];
     }
@@ -48,7 +48,7 @@ class Player
      *
      * @return int
      */
-    public function getPoints():int
+    public function getPoints(): int
     {
         return $this->points;
     }
@@ -58,7 +58,7 @@ class Player
      *
      * @param int $points
      */
-    public function addPoints(int $points):void
+    public function addPoints(int $points): void
     {
         $this->points += $points;
     }
@@ -68,7 +68,7 @@ class Player
      *
      * @return bool
      */
-    public function hasCards():bool
+    public function hasCards(): bool
     {
         return !empty($this->cards);
     }
@@ -78,7 +78,7 @@ class Player
      *
      * @param Table $table
      */
-    public function playCard(Table $table):void
+    public function playCard(Table $table): void
     {
         $cards = $table->getCards();
         $card = null;
@@ -86,6 +86,7 @@ class Player
         // No cards on the table so just play a card.
         if (empty($cards)) {
             $table->addCard($this, array_pop($this->cards));
+
             return;
         }
 

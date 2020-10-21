@@ -35,12 +35,12 @@ class Card
         return $this->type->getValue() . $value;
     }
 
-    public function getType():CardType
+    public function getType(): CardType
     {
         return $this->type;
     }
 
-    public function getValue():CardValue
+    public function getValue(): CardValue
     {
         return $this->value;
     }

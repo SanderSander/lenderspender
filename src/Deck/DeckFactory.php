@@ -22,7 +22,7 @@ class DeckFactory implements DeckFactoryInterface
      *
      * @return Deck
      */
-    public function make():Deck
+    public function make(): Deck
     {
 
         // Add all unique cards for a full deck

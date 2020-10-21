@@ -10,5 +10,9 @@ return PhpCsFixer\Config::create()
     ->setRules([
         '@PSR2' => true,
         'strict_param' => true,
+        'return_type_declaration' => true,
+        'no_unused_imports' => true,
+        'no_whitespace_in_blank_line' => true,
+        'blank_line_before_statement' => ['statements' => ['continue', 'declare', 'return', 'throw', 'try']],
         'array_syntax' => ['syntax' => 'short'],
     ])->setFinder($finder);

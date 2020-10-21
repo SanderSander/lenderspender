@@ -21,7 +21,7 @@ class Table
      * @param Player $player
      * @param Card $card
      */
-    public function addCard(Player $player, Card $card):void
+    public function addCard(Player $player, Card $card): void
     {
         array_push($this->cards, [$player, $card]);
     }
@@ -31,7 +31,7 @@ class Table
      *
      * @return Card[]
      */
-    public function getCards():array
+    public function getCards(): array
     {
         return $this->cards;
     }
@@ -41,7 +41,7 @@ class Table
      *
      * @return int
      */
-    public function getPoints():int
+    public function getPoints(): int
     {
         $points = 0;
         foreach ($this->cards as $played) {
@@ -67,7 +67,7 @@ class Table
      *
      * @return Player
      */
-    public function getLosingPlayer():Player
+    public function getLosingPlayer(): Player
     {
         // The starting player will always lose, if other players
         // did not have cards of the same type.
@@ -85,6 +85,7 @@ class Table
                 }
             }
         }
+
         return $loser;
     }
 
@@ -94,7 +95,7 @@ class Table
      * @param Player $player
      * @return Card|null
      */
-    public function getPlayedCard(Player $player):?Card
+    public function getPlayedCard(Player $player): ?Card
     {
         foreach ($this->cards as $played) {
             if ($played[0] === $player) {

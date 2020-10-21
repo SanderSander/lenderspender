@@ -51,7 +51,7 @@ class SimulateCommand extends Command
         return Command::SUCCESS;
     }
 
-    protected function writeScores(Game $game, OutputInterface $output):void
+    protected function writeScores(Game $game, OutputInterface $output): void
     {
         $output->writeln(sprintf('%s loses the game!', $game->getLoser()));
         $output->writeln('Points:');
@@ -82,7 +82,7 @@ class SimulateCommand extends Command
         $this->writeDealtCards($game->getPlayer(3), $output);
     }
 
-    protected function play(Game $game, OutputInterface $output):void
+    protected function play(Game $game, OutputInterface $output): void
     {
         $output->writeln(sprintf(
             'Round %d: %s starts the game',
@@ -124,7 +124,7 @@ score. %s’s total score is %d points.',
         ));
     }
 
-    private function writeDealtCards(Player $player, OutputInterface $output):void
+    private function writeDealtCards(Player $player, OutputInterface $output): void
     {
         // TODO we are missing one card, also this can be more generic
         $output->writeln(sprintf(

@@ -35,7 +35,7 @@ class Game
     /**
      * Distribute cards from the a new deck to all the players
      */
-    public function distributeCards():void
+    public function distributeCards(): void
     {
         $deck = $this->deckFactory->make();
 
@@ -51,7 +51,7 @@ class Game
      *
      * @return Table
      */
-    public function play():Table
+    public function play(): Table
     {
         $table = new Table();
 
@@ -82,7 +82,7 @@ class Game
      *
      * @return bool
      */
-    public function finished():bool
+    public function finished(): bool
     {
         foreach ($this->players as $player) {
             if ($player->getPoints() >= 50) {
@@ -93,7 +93,7 @@ class Game
         return false;
     }
 
-    public function getPlayer(int $index):Player
+    public function getPlayer(int $index): Player
     {
         return $this->players[$index];
     }
@@ -101,7 +101,7 @@ class Game
     /**
      * @return Player[]
      */
-    public function getPlayers() : array
+    public function getPlayers(): array
     {
         return $this->players;
     }
@@ -111,7 +111,7 @@ class Game
      *
      * @return Player|null
      */
-    public function getLoser():?Player
+    public function getLoser(): ?Player
     {
         foreach ($this->players as $player) {
             if ($player->getPoints() >= 50) {
@@ -127,7 +127,7 @@ class Game
      *
      * @return Player
      */
-    public function getStartingPlayer():Player
+    public function getStartingPlayer(): Player
     {
         return $this->players[$this->startingPlayer];
     }

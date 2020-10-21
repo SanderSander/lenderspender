@@ -6,5 +6,5 @@ namespace Acme\Deck;
 
 interface DeckFactoryInterface
 {
-    public function make():Deck;
+    public function make(): Deck;
 }
