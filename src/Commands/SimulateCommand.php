@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class SimulateCommand extends Command
 {
-    protected static string $defaultName = 'simulate';
+    protected static $defaultName = 'simulate';
 
     protected int $rounds = 0;
 
