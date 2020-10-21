@@ -12,11 +12,13 @@ class Player
     protected int $points = 0;
     protected array $cards = [];
 
-    public function __construct(string $name) {
+    public function __construct(string $name)
+    {
         $this->name = $name;
     }
 
-    public function __toString():string {
+    public function __toString():string
+    {
         return $this->name;
     }
 
@@ -25,7 +27,8 @@ class Player
      *
      * @param array $cards
      */
-    public function setCards(array $cards):void {
+    public function setCards(array $cards):void
+    {
         $this->cards = $cards;
     }
 
@@ -35,7 +38,8 @@ class Player
      * @param int $index
      * @return Card
      */
-    public function getCard(int $index):Card {
+    public function getCard(int $index):Card
+    {
         return $this->cards[$index];
     }
 
@@ -44,7 +48,8 @@ class Player
      *
      * @return int
      */
-    public function getPoints():int {
+    public function getPoints():int
+    {
         return $this->points;
     }
 
@@ -53,7 +58,8 @@ class Player
      *
      * @param int $points
      */
-    public function addPoints(int $points):void {
+    public function addPoints(int $points):void
+    {
         $this->points += $points;
     }
 
@@ -62,7 +68,8 @@ class Player
      *
      * @return bool
      */
-    public function hasCards():bool {
+    public function hasCards():bool
+    {
         return !empty($this->cards);
     }
 
@@ -71,7 +78,8 @@ class Player
      *
      * @param Table $table
      */
-    public function playCard(Table $table):void {
+    public function playCard(Table $table):void
+    {
         $cards = $table->getCards();
         $card = null;
 
@@ -84,11 +92,10 @@ class Player
         $type = $cards[0][1]->getType();
 
         // Pick lowest matching suite card
-        foreach($this->cards as $currentCard) {
+        foreach ($this->cards as $currentCard) {
             if ($currentCard->getType()->equals($type)) {
                 if ($card === null ||
-                    $card->getValue()->getValue() > $currentCard->getValue()->getValue())
-                {
+                    $card->getValue()->getValue() > $currentCard->getValue()->getValue()) {
                     $card = $currentCard;
                 }
             }
@@ -96,9 +103,8 @@ class Player
 
         // Remove lower card from hand, or when no matching lower card pick random card.
         if ($card !== null) {
-            unset($this->cards[array_search($card, $this->cards)]);
-        }
-        else {
+            unset($this->cards[array_search($card, $this->cards, true)]);
+        } else {
             $card = array_pop($this->cards);
         }
 

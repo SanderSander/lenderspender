@@ -35,12 +35,13 @@ class Game
     /**
      * Distribute cards from the a new deck to all the players
      */
-    public function distributeCards():void {
+    public function distributeCards():void
+    {
         $deck = $this->deckFactory->make();
 
         // Distribute all cards over the players
         $take = $deck->count() / count($this->players);
-        foreach($this->players as $player) {
+        foreach ($this->players as $player) {
             $player->setCards($deck->take($take));
         }
     }
@@ -50,12 +51,13 @@ class Game
      *
      * @return Table
      */
-    public function play():Table {
+    public function play():Table
+    {
         $table = new Table();
 
         // Here we iterate through all the players from the starting player
         // Because we don't start at zero we need 2 for loops
-        for($i = $this->startingPlayer; $i < count($this->players); $i++) {
+        for ($i = $this->startingPlayer; $i < count($this->players); $i++) {
             $player = $this->players[$i];
             $player->playCard($table);
         }
@@ -80,8 +82,9 @@ class Game
      *
      * @return bool
      */
-    public function finished():bool {
-        foreach($this->players as $player) {
+    public function finished():bool
+    {
+        foreach ($this->players as $player) {
             if ($player->getPoints() >= 50) {
                 return true;
             }
@@ -90,14 +93,16 @@ class Game
         return false;
     }
 
-    public function getPlayer(int $index):Player {
+    public function getPlayer(int $index):Player
+    {
         return $this->players[$index];
     }
 
     /**
      * @return Player[]
      */
-    public function getPlayers() : array {
+    public function getPlayers() : array
+    {
         return $this->players;
     }
 
@@ -106,8 +111,9 @@ class Game
      *
      * @return Player|null
      */
-    public function getLoser():?Player {
-        foreach($this->players as $player) {
+    public function getLoser():?Player
+    {
+        foreach ($this->players as $player) {
             if ($player->getPoints() >= 50) {
                 return $player;
             }
@@ -121,7 +127,8 @@ class Game
      *
      * @return Player
      */
-    public function getStartingPlayer():Player {
+    public function getStartingPlayer():Player
+    {
         return $this->players[$this->startingPlayer];
     }
 }

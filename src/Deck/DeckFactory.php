@@ -12,7 +12,8 @@ class DeckFactory implements DeckFactoryInterface
 {
     protected bool $shuffle;
 
-    public function __construct(bool $shuffle = false) {
+    public function __construct(bool $shuffle = false)
+    {
         $this->shuffle = $shuffle;
     }
 
@@ -21,12 +22,13 @@ class DeckFactory implements DeckFactoryInterface
      *
      * @return Deck
      */
-    public function make():Deck {
+    public function make():Deck
+    {
 
         // Add all unique cards for a full deck
         $cards = [];
-        foreach(CardType::values() as $type) {
-            foreach(CardValue::values() as $value) {
+        foreach (CardType::values() as $type) {
+            foreach (CardValue::values() as $value) {
                 array_push($cards, new Card($type, $value));
             }
         }

@@ -18,7 +18,8 @@ final class PlayerTest extends TestCase
     /**
      * Test if player plays a card when the table is empty
      */
-    public function testIfPlayerPlaysCardOnEmptyTable() {
+    public function testIfPlayerPlaysCardOnEmptyTable()
+    {
         $player = new Player('Foo');
         $card = new Card(CardType::SPADES(), CardValue::QUEEN());
         $player->setCards([$card]);
@@ -35,7 +36,8 @@ final class PlayerTest extends TestCase
     /**
      * Test if players plays his lowest matching card.
      */
-    public function testIfPlayerPlaysLowestMatchingCard() {
+    public function testIfPlayerPlaysLowestMatchingCard()
+    {
         $player = new Player('Foo');
         $cards = [
             new Card(CardType::SPADES(), CardValue::EIGHT()),
@@ -62,7 +64,8 @@ final class PlayerTest extends TestCase
     /**
      * Test if player plays a card, when it doesn't have a matching card.
      */
-    public function testIfPlayerPlaysNoMatchingCard() {
+    public function testIfPlayerPlaysNoMatchingCard()
+    {
         $player = new Player('Foo');
         $cards = [
             new Card(CardType::SPADES(), CardValue::QUEEN()),

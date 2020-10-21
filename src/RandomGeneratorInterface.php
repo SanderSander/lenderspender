@@ -6,5 +6,5 @@ namespace Acme;
 
 interface RandomGeneratorInterface
 {
-   public function random(int $min = 0, ?int $max = null):int;
+    public function random(int $min = 0, ?int $max = null):int;
 }

@@ -27,7 +27,8 @@ class SimulateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $game = new Game([
+        $game = new Game(
+            [
                 new Player("John"),
                 new Player("Jane"),
                 new Player("Jan"),
@@ -39,7 +40,7 @@ class SimulateCommand extends Command
 
         $this->begin($game, $output);
 
-        while(!$game->finished()) {
+        while (!$game->finished()) {
             $output->writeln('');
             $this->play($game, $output);
         }
@@ -50,10 +51,11 @@ class SimulateCommand extends Command
         return Command::SUCCESS;
     }
 
-    protected function writeScores(Game $game, OutputInterface $output):void {
+    protected function writeScores(Game $game, OutputInterface $output):void
+    {
         $output->writeln(sprintf('%s loses the game!', $game->getLoser()));
         $output->writeln('Points:');
-        foreach($game->getPlayers() as $player) {
+        foreach ($game->getPlayers() as $player) {
             $output->writeln(sprintf(
                 "%s:\t%d",
                 $player,
@@ -62,7 +64,8 @@ class SimulateCommand extends Command
         }
     }
 
-    protected function begin(Game $game, OutputInterface $output): void {
+    protected function begin(Game $game, OutputInterface $output): void
+    {
         $output->writeln(sprintf(
             'Starting a game with %s, %s, %s, %s',
             $game->getPlayer(0),
@@ -79,14 +82,15 @@ class SimulateCommand extends Command
         $this->writeDealtCards($game->getPlayer(3), $output);
     }
 
-    protected function play(Game $game, OutputInterface $output):void {
+    protected function play(Game $game, OutputInterface $output):void
+    {
         $output->writeln(sprintf(
             'Round %d: %s starts the game',
             ++$this->rounds,
             $game->getStartingPlayer(),
         ));
 
-        if(!$game->getStartingPlayer()->hasCards()) {
+        if (!$game->getStartingPlayer()->hasCards()) {
             $output->writeln('Players ran out of cards. Reshuffle');
             $game->distributeCards();
             $this->writeDealtCards($game->getPlayer(0), $output);
@@ -99,7 +103,7 @@ class SimulateCommand extends Command
         $table = $game->play();
 
         // Output the played cards
-        foreach($table->getCards() as $played) {
+        foreach ($table->getCards() as $played) {
             $output->writeln(sprintf(
                 "%s plays:\t%s",
                 $played[0],
@@ -120,7 +124,8 @@ score. %s’s total score is %d points.',
         ));
     }
 
-    private function writeDealtCards(Player $player, OutputInterface $output):void {
+    private function writeDealtCards(Player $player, OutputInterface $output):void
+    {
         // TODO we are missing one card, also this can be more generic
         $output->writeln(sprintf(
             "%s has been dealt:\t%s %s %s %s %s %s %s",

@@ -10,7 +10,8 @@ class Card
 
     protected CardValue $value;
 
-    public function __construct(CardType $type, CardValue $value) {
+    public function __construct(CardType $type, CardValue $value)
+    {
         $this->type = $type;
         $this->value = $value;
     }

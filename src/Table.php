@@ -21,7 +21,8 @@ class Table
      * @param Player $player
      * @param Card $card
      */
-    public function addCard(Player $player, Card $card):void {
+    public function addCard(Player $player, Card $card):void
+    {
         array_push($this->cards, [$player, $card]);
     }
 
@@ -30,7 +31,8 @@ class Table
      *
      * @return Card[]
      */
-    public function getCards():array {
+    public function getCards():array
+    {
         return $this->cards;
     }
 
@@ -39,9 +41,10 @@ class Table
      *
      * @return int
      */
-    public function getPoints():int {
+    public function getPoints():int
+    {
         $points = 0;
-        foreach($this->cards as $played) {
+        foreach ($this->cards as $played) {
             $card = $played[1];
             if (CardType::HEARTS()->equals($card->getType())) {
                 $points++;
@@ -64,7 +67,8 @@ class Table
      *
      * @return Player
      */
-    public function getLosingPlayer():Player {
+    public function getLosingPlayer():Player
+    {
         // The starting player will always lose, if other players
         // did not have cards of the same type.
         $loser = $this->cards[0][0];
@@ -72,7 +76,7 @@ class Table
 
         // Check if we have any higher cards of the same type
         // if so set the new loser
-        for($i = 1; $i < count($this->cards); $i++) {
+        for ($i = 1; $i < count($this->cards); $i++) {
             $currentCard = $this->cards[$i][1];
             if ($card->getType()->equals($currentCard->getType())) {
                 if ($currentCard->getValue()->getValue() > $card->getValue()->getValue()) {
@@ -90,8 +94,9 @@ class Table
      * @param Player $player
      * @return Card|null
      */
-    public function getPlayedCard(Player $player):?Card {
-        foreach($this->cards as $played) {
+    public function getPlayedCard(Player $player):?Card
+    {
+        foreach ($this->cards as $played) {
             if ($played[0] === $player) {
                 return $played[1];
             }

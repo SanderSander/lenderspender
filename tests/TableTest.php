@@ -22,7 +22,8 @@ final class TableTest extends TestCase
      * Jack of clubs:       2 points
      * Queen of spades:     5 points
      */
-    public function testPointsOnTableCalculation() {
+    public function testPointsOnTableCalculation()
+    {
         $player = $this->createMock(Player::class);
         $table = new Table();
 
@@ -39,7 +40,8 @@ final class TableTest extends TestCase
     /**
      * Test if the right player loses the current table
      */
-    public function testLosingPlayer() {
+    public function testLosingPlayer()
+    {
         $player1 = $this->createMock(Player::class);
         $player2 = $this->createMock(Player::class);
         $player3 = $this->createMock(Player::class);

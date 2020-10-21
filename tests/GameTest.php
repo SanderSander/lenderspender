@@ -21,7 +21,8 @@ final class GameTest extends TestCase
     /**
      * Test game initialization
      */
-    public function testGameInitialization() {
+    public function testGameInitialization()
+    {
         $deckFactory = $this->createMock(DeckFactoryInterface::class);
         $randomGenerator = $this->createMock(RandomGeneratorInterface::class);
 
@@ -34,7 +35,8 @@ final class GameTest extends TestCase
     /**
      * Test if the cards are distributed among the players
      */
-    public function testCardShuffle() {
+    public function testCardShuffle()
+    {
         $deckFactory = $this->createMock(DeckFactoryInterface::class);
         $randomGenerator = $this->createMock(RandomGeneratorInterface::class);
 
@@ -67,7 +69,8 @@ final class GameTest extends TestCase
     /**
      * Test detection of when the game is finished, and if the losing player is picked correctly
      */
-    public function testFinishedGame() {
+    public function testFinishedGame()
+    {
         $deckFactory = $this->createMock(DeckFactoryInterface::class);
         $randomGenerator = $this->createMock(RandomGeneratorInterface::class);
 
@@ -86,7 +89,8 @@ final class GameTest extends TestCase
     /**
      * Test one play round
      */
-    public function testSingleRound() {
+    public function testSingleRound()
+    {
         $deckFactory = $this->createMock(DeckFactoryInterface::class);
         $randomGenerator = $this->createMock(RandomGeneratorInterface::class);
 
