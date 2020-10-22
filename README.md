@@ -1,3 +1,5 @@
+![Build badge](https://github.com/SanderSander/lenderspender/workflows/Checks/badge.svg)
+
 # Heartbreak 
 
 Simulation of a simplified heartbreak card game with four players.
